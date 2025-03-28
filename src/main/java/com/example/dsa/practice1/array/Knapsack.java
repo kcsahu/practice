@@ -1,5 +1,5 @@
 package com.example.dsa.practice1.array;
-
+// Dynamic Programming
 public class Knapsack {
 
     public static void main(String[] args) {
