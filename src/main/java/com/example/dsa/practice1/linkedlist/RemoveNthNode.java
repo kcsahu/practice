@@ -18,17 +18,20 @@ public class RemoveNthNode {
      * @return
      */
     public static ListNode removeNthNode(ListNode head, int n){
-        ListNode fast = head;
+        ListNode node1 = head;
         while(n > 0){
-            fast = fast.next;
+            node1 = node1.next;
             n -= 1;
+            if(node1 == null){
+                return head;
+            }
         }
-        ListNode slow = head;
-        while(fast.next != null){
-            slow = slow.next;
-            fast = fast.next;
+        ListNode node2 = head;
+        while(node1.next != null){
+            node2 = node2.next;
+            node1 = node1.next;
         }
-        slow.next = slow.next.next;
+        node2.next = node2.next.next;
         return head;
     }
 }
