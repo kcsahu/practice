@@ -38,6 +38,8 @@ public class ReverseList {
     }
 
     // Leet code verified.
+    // Carve out the List for the left right position and reverse it.
+    // Merge with the original list
     private static ListNode reverseBetween(ListNode head, int left, int right) {
         ListNode newHead = new ListNode(-1);
         newHead.next = head;
