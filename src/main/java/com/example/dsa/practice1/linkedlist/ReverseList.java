@@ -51,6 +51,7 @@ public class ReverseList {
             }
             if (n == right) {
                 nextNode = cur;
+                break;
             }
             n++;
             cur = cur.next;
