@@ -4,7 +4,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 // Two pointers and Prefix-sum
-// Array with integers
+// Array with integers (both positive and negative)
 public class ShortestSubarray {
 
     public static void main(String[] args) {
