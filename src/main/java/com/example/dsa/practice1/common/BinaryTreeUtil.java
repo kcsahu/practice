@@ -16,6 +16,16 @@ public class BinaryTreeUtil {
         return null;
     }
 
+    public static TreeNode createBinaryTree(Integer[] values, int index) {
+        if (index < values.length && values[index] != null) {
+            TreeNode root = new TreeNode(values[index]);
+            root.left = createBinaryTree(values, (index << 1) + 1);
+            root.right = createBinaryTree(values, (index << 1) + 2);
+            return root;
+        }
+        return null;
+    }
+
     public static void print(TreeNode root, String msg) {
         if (root == null) {
             System.out.println();
