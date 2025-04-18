@@ -28,6 +28,7 @@ public class JumpGameIV {
         assert result == 3;
         System.out.println(result);
         int result2 = minJumps(new int[]{7, 6, 9, 6, 9, 6, 9, 7});
+        assert result2 == 1;
         System.out.println(result2);
     }
 
