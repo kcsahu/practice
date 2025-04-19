@@ -1,4 +1,4 @@
-package com.example.dsa.practice1.array;
+package com.example.dsa.practice1.dp;
 // Dynamic Programming
 public class Knapsack {
 
