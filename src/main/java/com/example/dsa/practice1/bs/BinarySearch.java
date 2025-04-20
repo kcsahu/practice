@@ -8,7 +8,7 @@ public class BinarySearch {
     public static void main(String[] args) {
         int search = search(new int[]{3, 5, 7, 9, 21, 39}, 21);
         System.out.println("Binary Search: " + search);
-        int firstOccurrence = searchFirstOccurrence(new int[]{3, 3, 5, 7, 7, 9, 21, 21, 39}, 7);
+        int firstOccurrence = searchFirstOccurrence(new int[]{3, 3, 5, 7, 7, 7, 9, 21, 21, 39}, 7);
         System.out.println("First occurrence: " + firstOccurrence);
         int lastOccurrence = searchLastOccurrence(new int[]{3, 3, 5, 7, 7, 9, 21, 21, 39}, 7);
         System.out.println("Last occurrence: " + lastOccurrence);
