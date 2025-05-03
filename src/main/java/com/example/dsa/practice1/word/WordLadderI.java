@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.stream.Stream;
 
 /**
+ * ####   BFS   ####
  * A transformation sequence from word beginWord to word endWord using a dictionary wordList is a sequence of words
  * beginWord -> s1 -> s2 -> ... -> sk such that:
  * <p>
@@ -17,7 +18,7 @@ import java.util.stream.Stream;
  * Output: 5
  * Explanation: One shortest transformation sequence is "hit" -> "hot" -> "dot" -> "dog" -> cog", which is 5 words long.
  */
-public class WordLadder {
+public class WordLadderI {
 
     public static void main(String[] args) {
         int result = ladderLength("hit", "cog", new ArrayList<>(
