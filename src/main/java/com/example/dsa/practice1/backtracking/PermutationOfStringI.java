@@ -6,7 +6,7 @@ import java.util.List;
 public class PermutationOfStringI {
 
     public static void main(String[] args) {
-        String value = "123";
+        String value = "abc";
         System.out.println(permutation(value));
         System.out.println("Iteration" + iteration);
     }
