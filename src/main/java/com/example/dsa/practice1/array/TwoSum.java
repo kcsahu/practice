@@ -1,17 +1,22 @@
 package com.example.dsa.practice1.array;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
+/**
+ * Array with unique integers.
+ */
 public class TwoSum {
 
     public static void main(String[] args) {
-        int[] result = twoSumHashing(new int[]{2, 7, 11, 15}, 9);
+        var result = twoSumHashing(new int[]{2, 7, 11, 15}, 9);
         System.out.println(Arrays.stream(result).mapToObj(Integer::valueOf).collect(Collectors.toList()));
         result = twoSumHashing(new int[]{3, 2, 4}, 6);
         System.out.println(Arrays.stream(result).mapToObj(Integer::valueOf).collect(Collectors.toList()));
+
+        var result1 = twoSumHashing1(new int[]{3, 2, 4, 0, 1, 5, 6}, 6);
+        System.out.println(result1);
 
     }
 
@@ -30,7 +35,24 @@ public class TwoSum {
             }
         }
         return new int[]{};
+    }
 
+    // Returns all the possible combination.
+    private static List<List<Integer>> twoSumHashing1(int[] nums, int target) {
+        int len = nums.length;
+        Map<Integer, Integer> dict = new HashMap<>();
+        for (int i = 0; i < len; i++) {
+            dict.put(nums[i], i);
+        }
+        List<List<Integer>> result = new LinkedList<>();
+        for (int i = 0; i < len; i++) {
+            int diff = target - nums[i];
+            if (dict.containsKey(diff) && dict.get(diff) != i) {
+                result.add(Stream.of(i, dict.get(diff)).toList());
+                dict.remove(nums[i]);
+            }
+        }
+        return result;
     }
 
 
