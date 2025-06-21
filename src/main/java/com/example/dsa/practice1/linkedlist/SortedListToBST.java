@@ -20,24 +20,25 @@ public class SortedListToBST {
         return buildTree(head, null);
     }
 
-    private static TreeNode buildTree(ListNode head, ListNode tail) {
-        if (head == tail) {
-            return null;
+    private static TreeNode buildTree(ListNode head, ListNode tail){
+        if(head != tail){
+            ListNode mid = middle(head, tail);
+            TreeNode tNode = new TreeNode(mid.value);
+            tNode.left = buildTree(head, mid);
+            tNode.right = buildTree(mid.next, tail);
+            return tNode;
         }
-        ListNode mid = findMiddle(head, tail);
-        TreeNode tnode = new TreeNode(mid.value);
-        tnode.left = buildTree(head, mid);
-        tnode.right = buildTree(mid.next, tail);
-        return tnode;
+        return null;
     }
 
-    private static ListNode findMiddle(ListNode left, ListNode right) {
-        ListNode slow = left;
-        ListNode fast = left;
-        while (fast != null && fast.next != right && fast.next.next != right) {
+    private static ListNode middle(ListNode node, ListNode tail){
+        ListNode slow = node;
+        ListNode fast = node;
+        while(fast != null && fast.next != tail && fast.next.next != tail){
             slow = slow.next;
             fast = fast.next.next;
         }
         return slow;
     }
+
 }
