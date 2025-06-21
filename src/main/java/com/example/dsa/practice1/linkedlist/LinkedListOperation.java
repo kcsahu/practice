@@ -119,14 +119,14 @@ public class LinkedListOperation {
             return head;
         }
         ListNode node1 = head;
-        while (k > 0) {
-            node1 = node1.next;
-            k--;
-        }
         ListNode node2 = head;
-        while (node1.next != null) {
+        while(node1.next != null){
             node1 = node1.next;
-            node2 = node2.next;
+            if(k>0){
+                k--;
+            } else{
+                node2 = node2.next;
+            }
         }
         ListNode newHead = node2.next;
         node2.next = null;
