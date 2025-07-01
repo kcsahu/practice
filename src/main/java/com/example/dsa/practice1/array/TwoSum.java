@@ -25,13 +25,11 @@ public class TwoSum {
         int len = nums.length;
         Map<Integer, Integer> dict = new HashMap();
         for (int i = 0; i < len; i++) {
-            dict.put(nums[i], i);
-        }
-        for (int i = 0; i < len; i++) {
             int diff = target - nums[i];
-            Integer nextInd = dict.get(diff);
-            if (nextInd != null && nextInd != i) {
-                return new int[]{i, nextInd};
+            if(dict.containsKey(diff)){
+                return new int[]{i, dict.get(diff)};
+            } else{
+                dict.put(nums[i], i);
             }
         }
         return new int[]{};
@@ -41,15 +39,14 @@ public class TwoSum {
     private static List<List<Integer>> twoSumHashing1(int[] nums, int target) {
         int len = nums.length;
         Map<Integer, Integer> dict = new HashMap<>();
-        for (int i = 0; i < len; i++) {
-            dict.put(nums[i], i);
-        }
         List<List<Integer>> result = new LinkedList<>();
         for (int i = 0; i < len; i++) {
             int diff = target - nums[i];
-            if (dict.containsKey(diff) && dict.get(diff) != i) {
+            if (dict.containsKey(diff)) {
                 result.add(Stream.of(i, dict.get(diff)).toList());
                 dict.remove(nums[i]);
+            } else{
+                dict.put(nums[i], i);
             }
         }
         return result;
