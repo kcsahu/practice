@@ -44,7 +44,6 @@ public class TwoSum {
             int diff = target - nums[i];
             if (dict.containsKey(diff)) {
                 result.add(Stream.of(i, dict.get(diff)).toList());
-                dict.remove(nums[i]);
             } else{
                 dict.put(nums[i], i);
             }
