@@ -23,6 +23,6 @@ public class FindMinInRotatedArrayWithDuplicates {
                 end--;
             }
         }
-        return start;
+        return nums[start];
     }
 }
