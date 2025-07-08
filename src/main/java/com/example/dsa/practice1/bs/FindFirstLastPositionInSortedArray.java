@@ -35,11 +35,11 @@ public class FindFirstLastPositionInSortedArray {
 
 
     private static int search(int[] nums, int start, int end, int target, boolean searchLeft) {
-        int firstOccurrence = -1;
+        int occurrence = -1;
         while (start <= end) {
             int mid = start + ((end - start) >>> 1);
             if (nums[mid] == target) {
-                firstOccurrence = mid;
+                occurrence = mid;
                 if (searchLeft) {
                     end = mid - 1;
                 } else {
@@ -51,7 +51,7 @@ public class FindFirstLastPositionInSortedArray {
                 end = mid - 1;
             }
         }
-        return firstOccurrence;
+        return occurrence;
     }
 
 }
