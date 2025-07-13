@@ -12,6 +12,7 @@ public class PermutationOfStringI {
     }
 
     static int iteration = 0;
+
     private static List<String> permutation(String value) {
         List<String> result = new LinkedList<>();
         permute(value.toCharArray(), 0, result);
@@ -32,8 +33,10 @@ public class PermutationOfStringI {
     }
 
     private static void swap(char[] arr, int left, int right) {
-        char temp = arr[left];
-        arr[left] = arr[right];
-        arr[right] = temp;
+        if (left != right) {
+            char temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+        }
     }
 }
