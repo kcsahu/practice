@@ -32,10 +32,12 @@ public class SubstringWithConcatenation {
     public static List<Integer> findSubstring(String s, String[] words) {
         int totalLength = words[0].length() * words.length;
         List<Integer> result = new LinkedList();
+        String prevString = null;
         for (int i = 0; i + totalLength < s.length() + 1; i++) {
             String substring = s.substring(i, i + totalLength);
-            if (isSubstring(substring, words)) {
+            if (substring.equals(prevString) || isSubstring2(substring, words)) {
                 result.add(i);
+                prevString = substring;
             }
         }
         return result;
@@ -57,4 +59,19 @@ public class SubstringWithConcatenation {
         }
         return dp[s.length()];
     }
+
+    private static boolean isSubstring2(String s, String[] words) {
+        PriorityQueue<String> dict = new PriorityQueue<>(Arrays.stream(words).toList());
+        int size = words[0].length();
+        for (int i = 0; i < s.length(); i = i + size) {
+            String substring = s.substring(i, i + size);
+            if (dict.contains(substring)) {
+                dict.remove(substring);
+            } else {
+                return false;
+            }
+        }
+        return dict.size() == 0;
+    }
+
 }
