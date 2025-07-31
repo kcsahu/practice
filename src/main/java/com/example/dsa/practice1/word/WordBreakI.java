@@ -13,6 +13,10 @@ import java.util.stream.Stream;
  * Input: s = "leetcode", wordDict = ["leet","code"]
  * Output: true
  * Explanation: Return true because "leetcode" can be segmented as "leet code".
+ * Input: s = "applepenapple", wordDict = ["apple","pen"]
+ * Output: true
+ * Explanation: Return true because "applepenapple" can be segmented as "apple pen apple".
+ * Note that you are allowed to reuse a dictionary word.
  */
 public class WordBreakI {
     public static void main(String[] args) {
