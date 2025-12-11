@@ -6,9 +6,13 @@ public class HeapSort {
 
     public static void main(String[] args) {
         HeapSort obj = new HeapSort();
+        int[] arr1 = new int[]{4, 1, 7, 2, 24, 23, 8, 3};
+        obj.buildMaxHeap(arr1);
+        System.out.println(Arrays.toString(arr1));
+
         int[] arr = {45, 39, 6, 14, 5, 29, 3, 1, 56, 28, 48, 25, 22, 44, 29};
         obj.heapSort(arr);
-        System.out.println(Arrays.stream(arr).mapToObj(Integer::valueOf).toList());
+        System.out.println(Arrays.toString(arr));
     }
 
     private void swap(int[] arr, int left, int right) {
@@ -36,7 +40,7 @@ public class HeapSort {
     private void buildMaxHeap(int[] arr) {
         int len = arr.length;
         int mid = len >>> 1;
-        for (int i = mid; i < len; i++) {
+        for (int i = mid; i >= 0; i--) {
             maxHeapify(arr, i, len);
         }
     }
